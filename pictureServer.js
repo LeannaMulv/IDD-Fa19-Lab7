@@ -140,12 +140,12 @@ io.on('connect', function(socket) {
   socket.on('disconnect', function() {
     console.log('user disconnected');
   });
-//});
+});
 //----------------------------------------------------------------------------//
 
 // LEANNA CHANGES
 void setup() {
-  //Serial.begin(9600);
+  Serial.begin(9600);
   pinMode(led, OUTPUT);
   pinMode(button, INPUT);
 }
@@ -198,4 +198,3 @@ void loop() {
 // END LEANNA CHANGES
 // HEY LEANNA - the big difference between helloYou and pictureServer is how serial works in relaying information 
 // from the arduino to the pi. 
-}

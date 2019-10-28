@@ -85,7 +85,7 @@ const parser = new Readline({
 });
 
 // LEANNA CHANGES
-int led = 13; // led that we will toggle
+//int led = 13; // led that we will toggle
 char inChar;  // character we will use for messages from the RPi
 
 int button = 2;

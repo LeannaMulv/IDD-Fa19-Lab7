@@ -145,7 +145,7 @@ io.on('connect', function(socket) {
 
 // LEANNA CHANGES
 void setup() {
-  Serial.begin(9600);
+  //Serial.begin(9600);
   pinMode(led, OUTPUT);
   pinMode(button, INPUT);
 }
@@ -159,6 +159,23 @@ void loop() {
   // if we get a 'H', turn the LED on, else turn it off
   if(inChar == 'H'){
     digitalWrite(led, HIGH);
+    //LEANNA ADDITION
+    {
+    /// First, we create a name for the new picture.
+    /// The .replace() function removes all special characters from the date.
+    /// This way we can use it as the filename.
+    var imageName = new Date().toString().replace(/[&\/\\#,+()$~%.'":*?<>{}\s-]/g, '');
+
+    console.log('making a making a picture at'+ imageName); // Second, the name is logged to the console.
+
+    //Third, the picture is  taken and saved to the `public/`` folder
+    NodeWebcam.capture('public/'+imageName, opts, function( err, data ) {
+    io.emit('newPicture',(imageName+'.jpg')); ///Lastly, the new name is send to the client web browser.
+    /// The browser will take this new name and load the picture from the public folder.
+  });
+
+  });
+  // END LEANNA ADDITION
   }
   else{
     digitalWrite(led, LOW);
@@ -167,24 +184,11 @@ void loop() {
   // Button event checker - if pressed, send message to RPi
   int newState = digitalRead(button);
   if (buttonState != newState) {
+    Serial.write('H');
     buttonState = newState;
     if(buttonState == HIGH){
       Serial.println("light"); //note println put a /r/n at the end of a line
-      {
-      /// First, we create a name for the new picture.
-      /// The .replace() function removes all special characters from the date.
-      /// This way we can use it as the filename.
-      var imageName = new Date().toString().replace(/[&\/\\#,+()$~%.'":*?<>{}\s-]/g, '');
-
-      console.log('making a making a picture at'+ imageName); // Second, the name is logged to the console.
-
-      //Third, the picture is  taken and saved to the `public/`` folder
-      NodeWebcam.capture('public/'+imageName, opts, function( err, data ) {
-      io.emit('newPicture',(imageName+'.jpg')); ///Lastly, the new name is send to the client web browser.
-      /// The browser will take this new name and load the picture from the public folder.
-  });
-
-  });
+      
     }
     else{
       Serial.println("dark");
@@ -193,5 +197,4 @@ void loop() {
 }
 // END LEANNA CHANGES
 // HEY LEANNA - the big difference between helloYou and pictureServer is how serial works in relaying information 
-// from the arduino to the pi. Maybe you need to get rid of things from pictureServer in order for the button from 
-// helloYou to work? 
+// from the arduino to the pi. 

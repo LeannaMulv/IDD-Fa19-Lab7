@@ -1,5 +1,4 @@
-/*
-server.js
+/* server.js
 
 Authors:David Goedicke (da.goedicke@gmail.com) & Nikolas Martelaro (nmartelaro@gmail.com)
 
@@ -145,7 +144,7 @@ io.on('connect', function(socket) {
 
 // LEANNA CHANGES
 
-
+/*
 void setup() {
 //Serial.begin(9600);
 //pinMode(led, OUTPUT);
@@ -174,6 +173,7 @@ void loop() {
     buttonState = newState;
     if(buttonState == HIGH){
       Serial.println("light"); //note println put a /r/n at the end of a line
+*/
       //LEANNA ADDITION
     //{
     /// First, we create a name for the new picture.
@@ -189,14 +189,15 @@ void loop() {
       /// The browser will take this new name and load the picture from the public folder.
   });
 
-  });
+
+//  });
   // END LEANNA ADDITION
-  }
+/*  }
   else{
       Serial.println("dark");
     }
   }
-}
+}*/
 // END LEANNA CHANGES
 // HEY LEANNA - the big difference between helloYou and pictureServer is how serial works in relaying information 
 // from the arduino to the pi. 

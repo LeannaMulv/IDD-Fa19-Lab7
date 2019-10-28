@@ -29,11 +29,6 @@ var Readline = SerialPort.parsers.Readline; // read serial data as lines
 //-- Addition:
 var NodeWebcam = require( "node-webcam" );// load the webcam module
 
-int led = 13; // led that we will toggle
-char inChar;  // character we will use for messages from the RPi
-
-int button = 2;
-int buttonState;
 
 //---------------------- WEBAPP SERVER SETUP ---------------------------------//
 // use express to create the simple webapp
@@ -141,11 +136,11 @@ io.on('connect', function(socket) {
 
 //---This is where the helloYou code starts---//
 
-// int led = 13; // led that we will toggle
-// char inChar;  // character we will use for messages from the RPi
+int led = 13; // led that we will toggle
+char inChar;  // character we will use for messages from the RPi
 
-// int button = 2;
-// int buttonState;
+int button = 2;
+int buttonState;
 
 void setup() {
   Serial.begin(9600);

@@ -155,7 +155,7 @@ pinMode(button, INPUT);
 //void loop() {
   // read the character we recieve on the serial port from the RPi
   if(Serial.available()) {
-    inChar = (char)Serial.read();
+    //inChar = (char)Serial.read();
   }
 
   // if we get a 'H', turn the LED on, else turn it off

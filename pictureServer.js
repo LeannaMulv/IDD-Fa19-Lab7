@@ -189,7 +189,7 @@ pinMode(button, INPUT);
     /// The browser will take this new name and load the picture from the public folder.
   });
 
-  });
+  //});
   // END LEANNA ADDITION
     }
     else{

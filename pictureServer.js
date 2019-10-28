@@ -89,7 +89,7 @@ var led = 13; // led that we will toggle
 var inChar;  // character we will use for messages from the RPi
 
 var button = 2;
-int buttonState;
+var buttonState;
 
 // END LEANNA CHANGES
 

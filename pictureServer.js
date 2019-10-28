@@ -154,18 +154,18 @@ io.on('connect', function(socket) {
 
 //void loop() {
   // read the character we recieve on the serial port from the RPi
-  if(Serial.available()) {
-    //inChar = (char)Serial.read();
-  }
+//   if(Serial.available()) {
+//     //inChar = (char)Serial.read();
+//   }
 
-  // if we get a 'H', turn the LED on, else turn it off
-  if(inChar == 'H'){
-    digitalWrite(led, HIGH);
+//   // if we get a 'H', turn the LED on, else turn it off
+//   if(inChar == 'H'){
+//     digitalWrite(led, HIGH);
     
-  }
-  else{
-    digitalWrite(led, LOW);
-  }
+//   }
+//   else{
+//     digitalWrite(led, LOW);
+//   }
 
   // Button event checker - if pressed, send message to RPi
   var newState = digitalRead(button);

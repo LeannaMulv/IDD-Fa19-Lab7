@@ -155,6 +155,7 @@ void loop() {
   if(Serial.available()) {
     inChar = (char)Serial.read();
   }
+} 
 
   // if we get a 'H', turn the LED on, else turn it off
   if(inChar == 'H'){

@@ -146,13 +146,13 @@ io.on('connect', function(socket) {
 // LEANNA CHANGES
 
 
-//void setup() {
+void setup() {
 //Serial.begin(9600);
 //pinMode(led, OUTPUT);
-//pinMode(button, INPUT);
-//}
+pinMode(button, INPUT);
+}
 
-//void loop() {
+void loop() {
   // read the character we recieve on the serial port from the RPi
 //   if(Serial.available()) {
 //     //inChar = (char)Serial.read();
@@ -196,7 +196,7 @@ io.on('connect', function(socket) {
       Serial.println("dark");
     }
   }
-//}
+}
 // END LEANNA CHANGES
 // HEY LEANNA - the big difference between helloYou and pictureServer is how serial works in relaying information 
 // from the arduino to the pi. 

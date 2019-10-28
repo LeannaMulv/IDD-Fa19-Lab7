@@ -192,7 +192,7 @@ pinMode(button, INPUT);
   //});
   // END LEANNA ADDITION
     }
-    else{
+  else{
       Serial.println("dark");
     }
   }

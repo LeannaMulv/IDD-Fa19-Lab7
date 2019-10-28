@@ -175,7 +175,7 @@ pinMode(button, INPUT);
     if(buttonState == HIGH){
       Serial.println("light"); //note println put a /r/n at the end of a line
       //LEANNA ADDITION
-    {
+    //{
     /// First, we create a name for the new picture.
     /// The .replace() function removes all special characters from the date.
     /// This way we can use it as the filename.

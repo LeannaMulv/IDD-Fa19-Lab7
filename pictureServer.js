@@ -86,7 +86,7 @@ const parser = new Readline({
 
 // LEANNA CHANGES
 var led = 13; // led that we will toggle
-char inChar;  // character we will use for messages from the RPi
+var inChar;  // character we will use for messages from the RPi
 
 var button = 2;
 var buttonState;
@@ -147,7 +147,7 @@ io.on('connect', function(socket) {
 
 
 //void setup() {
-Serial.begin(9600);
+//Serial.begin(9600);
 pinMode(led, OUTPUT);
 pinMode(button, INPUT);
 //}
@@ -161,7 +161,20 @@ pinMode(button, INPUT);
   // if we get a 'H', turn the LED on, else turn it off
   if(inChar == 'H'){
     digitalWrite(led, HIGH);
-    //LEANNA ADDITION
+    
+  }
+  else{
+    digitalWrite(led, LOW);
+  }
+
+  // Button event checker - if pressed, send message to RPi
+  int newState = digitalRead(button);
+  if (buttonState != newState) {
+    Serial.write('H');
+    buttonState = newState;
+    if(buttonState == HIGH){
+      Serial.println("light"); //note println put a /r/n at the end of a line
+      //LEANNA ADDITION
     {
     /// First, we create a name for the new picture.
     /// The .replace() function removes all special characters from the date.
@@ -178,19 +191,6 @@ pinMode(button, INPUT);
 
   });
   // END LEANNA ADDITION
-  }
-  else{
-    digitalWrite(led, LOW);
-  }
-
-  // Button event checker - if pressed, send message to RPi
-  int newState = digitalRead(button);
-  if (buttonState != newState) {
-    Serial.write('H');
-    buttonState = newState;
-    if(buttonState == HIGH){
-      Serial.println("light"); //note println put a /r/n at the end of a line
-      
     }
     else{
       Serial.println("dark");

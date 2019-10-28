@@ -84,6 +84,15 @@ const parser = new Readline({
   delimiter: '\r\n'
 });
 
+// LEANNA CHANGES
+int led = 13; // led that we will toggle
+char inChar;  // character we will use for messages from the RPi
+
+int button = 2;
+int buttonState;
+
+// END LEANNA CHANGES
+
 // Read data that is available on the serial port and send it to the websocket
 serial.pipe(parser);
 parser.on('data', function(data) {
@@ -133,3 +142,53 @@ io.on('connect', function(socket) {
   });
 });
 //----------------------------------------------------------------------------//
+
+// LEANNA CHANGES
+void setup() {
+  Serial.begin(9600);
+  pinMode(led, OUTPUT);
+  pinMode(button, INPUT);
+}
+
+void loop() {
+  // read the character we recieve on the serial port from the RPi
+  if(Serial.available()) {
+    inChar = (char)Serial.read();
+  }
+
+  // if we get a 'H', turn the LED on, else turn it off
+  if(inChar == 'H'){
+    digitalWrite(led, HIGH);
+  }
+  else{
+    digitalWrite(led, LOW);
+  }
+
+  // Button event checker - if pressed, send message to RPi
+  int newState = digitalRead(button);
+  if (buttonState != newState) {
+    buttonState = newState;
+    if(buttonState == HIGH){
+      Serial.println("light"); //note println put a /r/n at the end of a line
+      {
+      /// First, we create a name for the new picture.
+      /// The .replace() function removes all special characters from the date.
+      /// This way we can use it as the filename.
+      var imageName = new Date().toString().replace(/[&\/\\#,+()$~%.'":*?<>{}\s-]/g, '');
+
+      console.log('making a making a picture at'+ imageName); // Second, the name is logged to the console.
+
+      //Third, the picture is  taken and saved to the `public/`` folder
+      NodeWebcam.capture('public/'+imageName, opts, function( err, data ) {
+      io.emit('newPicture',(imageName+'.jpg')); ///Lastly, the new name is send to the client web browser.
+      /// The browser will take this new name and load the picture from the public folder.
+  });
+
+  });
+    }
+    else{
+      Serial.println("dark");
+    }
+  }
+}
+// END LEANNA CHANGES

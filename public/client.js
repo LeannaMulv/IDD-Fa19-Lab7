@@ -43,6 +43,7 @@ socket.on('server-msg', function(msg) {
     case "light":
       document.body.style.backgroundColor = "white";
       console.log("white")
+      takePicture()
 //       //('takePicture', function() {
 //       /// First, we create a name for the new picture.
 //       /// The .replace() function removes all special characters from the date.

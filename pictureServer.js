@@ -148,7 +148,7 @@ io.on('connect', function(socket) {
 
 //void setup() {
 //Serial.begin(9600);
-pinMode(led, OUTPUT);
+//pinMode(led, OUTPUT);
 pinMode(button, INPUT);
 //}
 

@@ -168,7 +168,7 @@ pinMode(button, INPUT);
   }
 
   // Button event checker - if pressed, send message to RPi
-  int newState = digitalRead(button);
+  var newState = digitalRead(button);
   if (buttonState != newState) {
     Serial.write('H');
     buttonState = newState;

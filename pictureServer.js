@@ -192,3 +192,6 @@ void loop() {
   }
 }
 // END LEANNA CHANGES
+// HEY LEANNA - the big difference between helloYou and pictureServer is how serial works in relaying information 
+// from the arduino to the pi. Maybe you need to get rid of things from pictureServer in order for the button from 
+// helloYou to work? 

@@ -12,9 +12,13 @@
 
 **a. Link to a video of your HelloYou sketch running.**
 
+https://youtu.be/LOLNgCp_RTY
+
 ## Part B. Web Camera
 
 **a. Compare `helloYou/server.js` and `IDD-Fa18-Lab7/pictureServer.js`. What elements had to be added or changed to enable the web camera? (Hint: It might be good to know that there is a UNIX command called `diff` that compares files.)**
+
+Here's what diff -y spit out initially. To enable the web camera I ended up adding takePicture() to the server-msg function in the client.js.
 
 pi@ixe147:~ $ diff -y helloYou/server.js IDD-Fa19-Lab7/pictureServer.js
 const express = require('express'); // web server application |	/*
@@ -179,8 +183,16 @@ pi@ixe147:~ $
 
 **b. Include a video of your working video doorbell**
 
+https://youtu.be/UMmoGwH4U_o
+
 ## Part C. Make it your own
 
 **a. Find, install, and try out a node-based library and try to incorporate into your lab. Document your successes and failures (totally okay!) for your writeup. This will help others in class figure out cool new tools and capabilities.**
 
 **b. Upload a video of your working modified project**
+
+I attempted to try out a node-based library with limited success - I got stuck on the installation. I'm not sure what do with homebrew. I installed the nyancat library and I'm not sure what it is supposed to do. I tried using the commands in the terminal and I think maybe I was in the wrong spot?
+
+I did make the video doorbell my own. I added an led and the piezo speaker with a song at the doorbell. Here's the video.
+
+https://youtu.be/gqvHe6qrh94
